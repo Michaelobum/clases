@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for= ""> Nombre</label>
+        <input id = "nombre"type="text" value= "" name="nota"> 
+        <label for= ""> Nota</label>
+        <input id= "nota"type="text" value= "" name="nota" onkeypress="nota1()"> 
+        <button onclick="mensaje()">Aceptar</button>
+        <input id= "nota"type="text" value= "" onchange="nota2()"> 
+        <button onclick="mensaje()">Aceptar</button>
+    </form>
+<div id="root"></div>
+</body>
+<script>
+    let nota1 = ''
+    let nota2 = ''
+    let nombre = ''
+    function mensaje (){
+        event.preventDefault()
+        nombre = document.getElementById("nombre").value
+        alert (nombre)
+        $root = document.getElementById("root")
+        $root.innerHTML = ´
+            <h2>${nombre}: Notas: [${n1},${n2}]</h2>
+        ´
+        console.log (nombre,n1,n2)
+        }
+        function nota1 (){
+            // console.log(event.target.name.event.target)
+            console.log(String.fromCharCode(event.keyCode))
+            n1 += String.fromCharCode(event.keyCode)
+        }
+        function nota2 (){
+            // console.log(event.target.name.event.target)
+            n2 = event.target.value
+        }
+</script>
+</html>
